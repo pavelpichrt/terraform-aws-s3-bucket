@@ -6,14 +6,6 @@ Provides an S3 bucket resource with common configuration options.
 
 ### Basic
 
-```terraform
-module "s3_bucket_logs" {
-  source = "terraform-s3-bucket-base"
-
-  name = "my-bucket"
-}
-```
-
 ### All options
 
 ```terraform
@@ -38,7 +30,7 @@ data "aws_iam_policy_document" "deny_put" {
 }
 
 module "s3_bucket_content" {
-  source = "terraform-s3-bucket-base"
+  source = "pavelpichrt/s3-bucket-base/aws"
 
   name = "my-bucket"
   has_custom_policy = true
