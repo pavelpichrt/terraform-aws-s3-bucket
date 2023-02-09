@@ -6,6 +6,14 @@ Provides an S3 bucket resource with common configuration options.
 
 ### Basic
 
+```terraform
+module "s3_bucket_logs" {
+  source = "pavelpichrt/s3-bucket-base/aws"
+
+  name = "my-bucket"
+}
+```
+
 ### All options
 
 ```terraform
