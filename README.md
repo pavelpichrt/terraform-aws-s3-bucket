@@ -8,7 +8,7 @@ Provides an S3 bucket resource with common configuration options.
 
 ```terraform
 module "s3_bucket_logs" {
-  source = "pavelpichrt/s3-bucket-base/aws"
+  source = "pavelpichrt/s3-bucket/aws"
 
   name = "my-bucket"
 }
@@ -38,7 +38,7 @@ data "aws_iam_policy_document" "deny_put" {
 }
 
 module "s3_bucket_content" {
-  source = "pavelpichrt/s3-bucket-base/aws"
+  source = "pavelpichrt/s3-bucket/aws"
 
   name = "my-bucket"
   has_custom_policy = true
