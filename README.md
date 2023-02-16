@@ -1,4 +1,4 @@
-# S3 Bucket Base
+# S3 Bucket
 
 Provides an S3 bucket resource with common configuration options.
 
