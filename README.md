@@ -7,7 +7,7 @@ Provides an S3 bucket resource with common configuration options.
 ### Basic
 
 ```terraform
-module "s3_bucket_logs" {
+module "my_bucket" {
   source = "pavelpichrt/s3-bucket/aws"
 
   name = "my-bucket"
@@ -37,7 +37,7 @@ data "aws_iam_policy_document" "deny_put" {
   }
 }
 
-module "s3_bucket_content" {
+module "my_bucket" {
   source = "pavelpichrt/s3-bucket/aws"
 
   name = "my-bucket"
@@ -78,6 +78,26 @@ module "s3_bucket_content" {
         newer_noncurrent_versions = 3
       }
     ]
+  }]
+}
+```
+
+### Optional attributes in object_transistion
+
+Due to Terraform limitations, nested variable attributes need to always be specified. This is relevant for the `object_transitions` attribute. For example, if you only want to specify noncurrent object expiration:
+
+```terraform
+module "my_bucket" {
+  source = "pavelpichrt/s3-bucket/aws"
+
+  name = "my-bucket"
+
+  object_transitions = [{
+    # Delete non-current objects after this many days
+    noncurrent_version_expiration_days = 90
+    current_version_expiration_days    = null
+    current                            = null
+    non_current                        = null
   }]
 }
 ```
