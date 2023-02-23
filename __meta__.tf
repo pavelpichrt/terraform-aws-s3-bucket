@@ -1,3 +1,14 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "> 4.20.0"
+    }
+  }
+}
+
+# ===========================
+
 variable "name" {}
 
 variable "sse_algorithm" {
