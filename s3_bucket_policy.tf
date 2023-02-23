@@ -1,15 +1,12 @@
 locals {
   default_policy = jsonencode({
     Version = "2012-10-17"
-    Id      = "ContentAccountAccess"
     Statement = [
       {
         Sid       = "AllowSSLRequestsOnly"
         Effect    = "Deny"
         Principal = "*"
-        Action = [
-          "s3:*",
-        ]
+        Action    = ["s3:*"]
         Resource = [
           aws_s3_bucket.bucket.arn,
           "${aws_s3_bucket.bucket.arn}/*",
@@ -18,8 +15,8 @@ locals {
           Bool = {
             "aws:SecureTransport" = "false"
           }
-        },
-      },
+        }
+      }
     ]
   })
 }
