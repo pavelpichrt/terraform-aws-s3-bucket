@@ -41,7 +41,6 @@ module "my_bucket" {
   source = "pavelpichrt/s3-bucket/aws"
 
   name = "my-bucket"
-  has_custom_policy = true
   force_destroy     = true # Will prevent errors when deleting a buckket that is not empty
   is_versioned      = true
   sse_algorithm     = "AES256"
